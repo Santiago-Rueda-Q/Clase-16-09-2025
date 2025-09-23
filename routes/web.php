@@ -1,8 +1,10 @@
 <?php
 
+use App\Http\Controllers\AuthorController;
+use App\Http\Controllers\BookController;
+use App\Http\Controllers\Controller;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,6 +15,10 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+//name es el nombre de la routa
+route::get('/authors', [AuthorController::class, 'index'])->middleware('auth')->name('authors.index');
+route::get('/books', [BookController::class, 'index'])->middleware('auth')->name('books.index');
+
 
 Route::get('/', function () {
     return view('welcome');
